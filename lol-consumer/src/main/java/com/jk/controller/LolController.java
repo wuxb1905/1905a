@@ -19,7 +19,7 @@ public class LolController {
     @ResponseBody
 
     public Map<String,Object> queryLolList(){
-        return lolService.queryLol();
+        return null;
     }
 
     @RequestMapping("addLol")
