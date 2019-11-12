@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.mapper.LolMapper" >
+
+    <select id="querySum" resultType="int">
+        select count(*) from t_lol
+    </select>
+
+    <select id="queryList" resultType="com.jk.model.Lol">
+        select * from t_lol
+    </select>
+
+    <insert id="addLol">
+        insert into t_lol (l_name,l_type,l_date,l_info) values(#{l_name},#{l_type},sysdate(),#{l_info})
+    </insert>
+
+    <delete id="deleteLol">
+        delete from t_lol where l_id = #{id}
+    </delete>
+
+    <select id="queryLolById" resultType="com.jk.model.Lol">
+        select * from t_lol where l_id = #{id}
+    </select>
+
+    <update id="updateLol">
+        update t_lol set
+        l_name = #{l_name},l_type=#{l_type},l_info=#{l_info},l_date=sysdate()
+        where l_id = #{l_id}
+    </update>
+</mapper>

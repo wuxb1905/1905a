@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script src="../Highcharts/highcharts/code/highcharts.js"></script>
+<script src="../Highcharts/highcharts/code/modules/exporting.js"></script>
+<script src="../Highcharts/highcharts/code/modules/export-data.js"></script>
+<body>
+<div id="container"></div>
+
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            url:"",
+            success:function(data){
+                Highcharts.chart('container', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: 'Browser market shares in January, 2018'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                            }
+                        }
+                    },
+                    series:data
+                })
+            }
+
+        })
+
+    })
+
+</script>
+</body>
+</html>
